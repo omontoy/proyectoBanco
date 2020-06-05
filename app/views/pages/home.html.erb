@@ -1,0 +1,133 @@
+<div class="container-fluid px-5">
+  <div class="row mt-4">
+    <div class="col d-flex flex-row">
+      <%= image_tag "bancolombia-logo.png", height: '70px' %>
+      <h4 class='ml-4 font-weight-bold align-self-center'>Servicio de Valoración de Riesgos Operacionales</h4>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <h5 class="col">Configuración del servicio</h5>
+    <h5 class="col">Insumos</h5>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-3">
+      <div class="form-group">
+	<label class="text-secondary">Tipo de Valoración</label>
+	<select id="valoration-time" class="form-control">
+	  <option value="" disabled selected>Tipo de Valoración</option>
+	  <option>Valoración tradicional</option>
+	  <option>Valoración con duración</option>
+	</select>
+
+        <div class="text-secondary mt-3">
+          <span>Lista:</span>
+          <ul>
+            <li>Valoración tradicional</li>
+            <li>Valoración con duración</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="form-group">
+	<label class="text-secondary">Tipos de frecuencia 2</label>
+	<select id="frecuency-type" class="form-control" disabled>
+	  <option value="" disabled selected>Tipos de frecuencia 2</option>
+	  <option>Metodo 1 (Por rangos)</option>
+	  <option>Metodo 2 (Poisson)</option>
+	  <option>Metodo 3 (Binomial)</option>
+	</select>
+
+        <div class="text-secondary mt-3">
+          <span>Lista:</span>
+          <ul>
+            <li>Metodo 1 (Por rangos)</li>
+            <li>Metodo 2 (Poisson)</li>
+            <li>Metodo 3 (Binomial)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <label class="text-secondary">Impacto(%):</label>
+      <table class="table table-bordered">
+	<thead>
+	  <tr>
+	    <th scope="col">Rango</th>
+	    <th scope="col">Límite Inferior</th>
+	    <th scope="col">Límite Superior</th>
+	    <th scope="col">Prob %</th>
+	  </tr>
+	</thead>
+	<tbody>
+          <% (1..7).each do |index| %>
+            <tr>
+              <th scope="row"><%= index %></th>
+              <td>
+                <input class="form-control" type="text">
+              </td>
+              <td>
+                <input class="form-control" type="text">
+              </td>
+              <td>
+                <input class="form-control" type="text">
+              </td>
+            </tr>
+          <% end %>
+	</tbody>
+      </table>
+    </div>
+
+    <div class="col-3">
+      <label class="text-secondary">Duración(Horas):</label>
+      <table class="table table-bordered">
+	<thead>
+	  <tr>
+	    <th scope="col">Rango</th>
+	    <th scope="col">Límite Inferior</th>
+	    <th scope="col">Límite Superior</th>
+	    <th scope="col">Prob %</th>
+	  </tr>
+	</thead>
+	<tbody>
+          <% (1..7).each do |index| %>
+            <tr>
+              <th scope="row"><%= index %></th>
+              <td>
+                <input class="form-control" type="text">
+              </td>
+              <td>
+                <input class="form-control" type="text">
+              </td>
+              <td>
+                <input class="form-control" type="text">
+              </td>
+            </tr>
+          <% end %>
+	</tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  $('#valoration-time').change(function(event) {
+    $('#frecuency-type').attr('disabled', false)
+
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
